@@ -1,0 +1,34 @@
+docker build --build-arg flink_dist="flink-dist" --build-arg job_artifacts="artifacts"  --build-arg python_version="3" . -t flink-fresh
+
+docker tag flink-fresh sameerbhat/flink-fresh;docker push sameerbhat/flink-fresh
+
+
+
+kubectl create -f flink-configuration-configmap.yaml;
+kubectl create -f jobmanager-deployment.yaml; 
+kubectl create -f jobmanager-rest-service.yaml; 
+kubectl create -f jobmanager-service.yaml; 
+kubectl create -f taskmanager-deployment.yaml;
+
+
+
+minikube service flink-jobmanager-rest --url
+
+
+kubectl exec -it flink-jobmanager-6655f4658-b825m  -- /bin/bash
+
+
+//old container info 
+java --version
+openjdk version "1.8.0_212"
+OpenJDK Runtime Environment (IcedTea 3.12.0) (Alpine 8.212.04-r0)
+OpenJDK 64-Bit Server VM (build 25.212-b04, mixed mode)
+bash-4.4$ uname -a
+Linux flink-jobmanager-6655f4658-b825m 4.19.94 #1 SMP Thu Feb 20 00:37:50 PST 2020 x86_64 Linux
+bash-4.4$ 
+
+
+
+
+
+
