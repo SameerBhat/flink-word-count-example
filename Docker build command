@@ -15,7 +15,7 @@ kubectl create -f taskmanager-deployment.yaml;
 minikube service flink-jobmanager-rest --url
 
 
-kubectl exec -it flink-jobmanager-6655f4658-b825m  -- /bin/bash
+kubectl exec -it flink-jobmanager-6655f4658-n6q9q  -- /bin/bash
 
 
 //old container info 

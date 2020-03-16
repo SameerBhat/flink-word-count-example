@@ -6,7 +6,6 @@ jobmanager.rpc.port: 6123
 
 taskmanager.rpc.port: 6122
 
-# The heap size for the JobManager JVM
 
 jobmanager.heap.size: 1024m
 
